@@ -5,8 +5,8 @@
       <profile type="0x0" description="PP45 Master">
         <data>
           <enum description="Operation Mode" shortcut="OM" offset="20" size="1">
-	          <item description="Cross-ventilation" value="0" />
-            <item description="Heat recovery" value="1" />
+	          <item description="Cross-ventilation" value="1" />
+            <item description="Heat recovery" value="0" />
           </enum>
           <enum description="Ventilation Level" shortcut="VL" offset="21" size="3">
             <item description="0" value="0" />
