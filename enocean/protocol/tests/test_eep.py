@@ -6,6 +6,7 @@ from enocean.protocol.eep import EEP
 from enocean.protocol.constants import RORG
 from enocean.decorators import timing
 
+
 @timing(1000)
 def test_temperature():
     ''' Tests RADIO message for EEP -profile 0xA5 0x02 0x05 '''
