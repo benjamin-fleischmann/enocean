@@ -32,7 +32,7 @@ class PP45TestCase:
 (PP45TestCase(data=[0xd1, 0x27, 0x0, 0x05, 0x3b, 0x0, 0x5, 0x1b, 0x76, 0x84, 0x81],operation_mode=0,ventilation_level=5))],
 ids=PP45TestCase.id)
 @timing(1000)
-def test_pp45_telegrams(test_case):
+def test_d1270_telegrams(test_case):
     ''' Tests RADIO message for EEP -profile 0xd1 0x27 0x0 '''
     """
     05:1B:76:84->05:1A:EA:AD (-71 dBm): 0x01 
@@ -55,33 +55,3 @@ def test_pp45_telegrams(test_case):
     # assert packet.repeater_count == 0
     # assert packet.sender == [0x05, 0x1B, 0x76, 0x84]
     # assert packet.sender_hex == '05:1B:76:84'
-
-# @timing(1000)
-# def test_pp45_om_1_vl_3():
-#     ''' Tests RADIO message for EEP -profile 0xd1 0x27 0x0 '''
-#     """
-#     05:1B:76:84->05:1A:EA:AD (-71 dBm): 0x01 
-#     ['0xd1', '0x27', '0x0', '0xb', '0x3c', '0x0', '0x5', '0x1b', '0x76', '0x84', '0x81']
-#     ['0x0', '0x5', '0x1a', '0xea', '0xad', '0x47', '0x0']
-#     """
-#     packet = RadioPacket(0x01,
-#         data=[0xd1, 0x27, 0x0, 0xb, 0x3c, 0x0, 0x5, 0x1a, 0xea, 0xbd, 0x81],
-#         optional=[0x00, 0x05, 0x1a, 0xea, 0xad, 0x47, 0x0]
-#     )
-#     print(packet)
-    
-#     assert packet.parse_eep(0x27, 0x0) == ['OM','VL']
-#     # assert round(packet.parsed['TMP']['value'], 1) == 26.7
-#     # assert packet.parsed['TMP']['raw_value'] == 85
-#     # assert packet.learn is False
-#     # assert packet.contains_eep is True
-#     assert packet.rorg == 0xd1
-#     # assert packet.rorg == int(RORG.BS4)
-#     assert packet.rorg_func == 0x27
-#     assert packet.rorg_type == 0x0
-#     assert packet.status == 0x00
-#     assert packet.repeater_count == 0
-#     # assert packet.sender == [0x05, 0x1B, 0x76, 0x84]
-#     # assert packet.sender_hex == '05:1B:76:84'
-#     assert packet.parsed['OM']['raw_value'] == 1
-#     assert packet.parsed['VL']['raw_value'] == 3
