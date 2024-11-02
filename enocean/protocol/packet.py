@@ -347,6 +347,11 @@ class RadioPacket(Packet):
                     self.rorg_type = enocean.utils.from_bitarray(self._bit_data[DB3.BIT_1:DB2.BIT_2])
                     self.rorg_manufacturer = enocean.utils.from_bitarray(self._bit_data[DB2.BIT_2:DB0.BIT_7])
                     self.logger.debug('learn received, EEP detected, RORG: 0x%02X, FUNC: 0x%02X, TYPE: 0x%02X, Manufacturer: 0x%02X' % (self.rorg, self.rorg_func, self.rorg_type, self.rorg_manufacturer))  # noqa: E501
+        if self.rorg == RORG.MSC:
+            self.learn = False # Always set to false for now
+            self.contains_eep = True
+            self.rorg_func = enocean.utils.from_bitarray(self._bit_data[0:8])
+            self.rorg_type = enocean.utils.from_bitarray(self._bit_data[8:12])
 
         return super(RadioPacket, self).parse()
 
